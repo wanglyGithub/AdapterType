@@ -3,6 +3,8 @@ ListView显示不同的Item 布局
 有时候在开发当中我们需要根据不同的数据类型为ListView 加载不同的布局文件！我们通常的操作是在 getView 中判断 position 取出相关的属性字段，
 然后加以控制，但是这样不利于我们的编写更好的代码所以，就需要其他的方式实现！
 好在ListView 提供了  getItemViewType(int position) 、getTypeCount() 两个方法、
+
+
 一、定义类型常量：
  public static final int TYPE_COUNT = 2;
  public static final int TYPE_NOMAL = 0; //没有点赞
@@ -10,13 +12,16 @@ ListView显示不同的Item 布局
  
  
  二、重写 getItemViewType(int position) 、getTypeCount() 两个方法
+ 
+ 
 /**
-  * 获取类型的总数
-  * @return
-  */
-public static int getTypeCount() {
+* 获取类型的总数
+* @return
+*/
+ public static int getTypeCount() {
         return TYPE_COUNT;
-    }
+}
+
     
 /**
   * 获取Item的 类型
@@ -33,6 +38,7 @@ public int getItemViewType(int position) {
         return 100;
      }
  }
+ 
  三、public View getView(int position, View convertView, ViewGroup parent)
         NomalHolder nomalHolder = null;
         SupportHoldler supportHoldler = null;
